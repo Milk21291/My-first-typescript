@@ -84,3 +84,42 @@ const someNumbers = {
     n2: 5,
 };
 console.log(multiplyNumbers(someNumbers));
+function noSoemthing(info) {
+    if (typeof info === 'number') {
+        console.log(`O número é ${info}`);
+        return;
+    }
+    console.log('Não foi passado o número');
+}
+noSoemthing(5);
+noSoemthing(true);
+function showArraysItems(arr) {
+    arr.forEach((item) => {
+        console.log(`ITEM: ${item}`);
+    });
+}
+const arr1 = [1, 2, 3];
+const arr2 = ['a', 'b', 'c'];
+showArraysItems(arr1);
+showArraysItems(arr2);
+class User {
+    constructor(name, role, isApproved) {
+        this.name = name;
+        this.role = role;
+        this.isApproved = isApproved;
+    }
+    showUserName() {
+        console.log(`O nome do usuário é ${this.name}`);
+    }
+    showUserRole(canShow) {
+        if (canShow) {
+            console.log(`O trabalho do usuário é ${this.role}`);
+            return;
+        }
+        console.log('Informação restrita!');
+    }
+}
+const joao = new User('João', 'Programador', true);
+console.log(joao);
+joao.showUserName();
+joao.showUserRole(false);
