@@ -184,3 +184,68 @@ joao.showUserName()
 joao.showUserRole(false)
 
 // interfaces em classes
+interface IVehicle {
+    brand: string
+    showBrand(): void
+}
+
+class Car implements IVehicle {
+    
+    brand
+    wheels
+
+    constructor(brand: string, wheels: number) {
+        this.brand = brand
+        this.wheels = wheels
+    }
+
+    showBrand(): void {
+        console.log(`A marca do carro é: ${this.brand}`)
+    }
+}
+
+const gtr35 = new Car('Nissan', 4)
+const golGtr = new Car('VW', 4)
+gtr35.showBrand()
+golGtr.showBrand()
+
+// herança
+
+class SuperCar extends Car {
+
+    engine
+
+    constructor(brand: string, wheels: number, engine: number) {
+        super(brand, wheels)
+        this.engine = engine
+    }
+}
+const a4 = new SuperCar('Audi', 4, 2.0)
+a4.showBrand()
+
+// decorators 
+// constructor decorator
+function BaseParameters() {
+    return function <T extends {new (...args: any[]): {}}>(constructor: T) {
+        return class extends constructor {
+            id = Math.random()
+            createdAt = new Date()
+        }
+
+    }
+}
+
+// Todo o código que tiver @(arroba) é um decorators
+
+@BaseParameters()
+class Person {
+
+    name
+
+    constructor(name: string) {
+        this.name = name
+    } 
+}
+
+const userName = new Person('João')
+console.log(userName)
