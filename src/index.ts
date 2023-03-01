@@ -205,9 +205,9 @@ class Car implements IVehicle {
 }
 
 const gtr35 = new Car('Nissan', 4)
-const golGtr = new Car('VW', 4)
+const golGt = new Car('VW', 4)
 gtr35.showBrand()
-golGtr.showBrand()
+golGt.showBrand()
 
 // herança
 
